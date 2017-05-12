@@ -1,21 +1,17 @@
-#Mumble
+# Mumble
 
-This is the next iteration to create a first class working mumble container.
-This new version is now based on debian jessie slim image.
+Mumble container based off Alpine. based on https://hub.docker.com/r/extra/mumble/
 
 ##How to use : 
 
-`sudo docker run extra/mumble`
+`docker volume create mumble_data`
+`docker run -p 64738:64738 -p 64738:64738/udp -d -v mumble_data:/data frostvoid/mumble`
 
-You can choose to publish the port as you wish:
-
-`sudo docker run -p 53453:64738 -p 53453:64738/udp extra/mumble`
-
+## Environment Variables
 You can provide multiple settings using environment variables :
 
 `sudo docker run -e "MAX_USERS=50" extra/mumble`
 
-##Available variables
 
 	- MAX_USERS : Maximum users connected at the same time (default : 10)
 	- SERVER_TEXT : Welcome Text (default : "Docker container")

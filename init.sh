@@ -1,7 +1,6 @@
 #!/bin/sh
 
 if [ ! -e /data/murmur.ini ]; then
-        chown murmur.murmur /data
 	echo Starting Initialization
 	cp /etc/murmur.tpl /data/murmur.ini
 	if [ ! -z "$SERVER_PASSWORD" ] ; then echo 'serverpassword='"$SERVER_PASSWORD" >> /data/murmur.ini ; fi
@@ -9,9 +8,8 @@ if [ ! -e /data/murmur.ini ]; then
 	if [ ! -z "$SERVER_TEXT" ] ; then echo 'welcometext='"$SERVER_TEXT" >> /data/murmur.ini ; fi
 	if [ ! -z "$REGISTER_NAME" ] ; then echo 'registerName='"$REGISTER_NAME" >> /data/murmur.ini ; fi
 	if [ ! -z "$BANDWIDTH" ] ; then echo 'bandwidth='"$BANDWIDTH" >> /data/murmur.ini ; fi
-	if [ ! -z "$SUPW" ] ; then /usr/bin/murmur -fg -ini /data/murmur.ini -supw $SUPW ;fi
+	if [ ! -z "$SUPW" ] ; then /usr/bin/murmurd -fg -ini /data/murmur.ini -supw $SUPW ;fi
 	echo Initilization Completed 
 fi
 
-chown -R murmur.murmur /data
-exec su -c "/usr/bin/murmur -fg -ini /data/murmur.ini" murmur
+exec /usr/bin/murmurd -fg -ini /data/murmur.ini
