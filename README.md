@@ -2,7 +2,7 @@
 
 Mumble container based off Alpine. based on https://hub.docker.com/r/extra/mumble/
 
-##How to use : 
+## How to use : 
 
 `docker volume create mumble_data`
 `docker run -p 64738:64738 -p 64738:64738/udp -d -v mumble_data:/data frostvoid/mumble`
