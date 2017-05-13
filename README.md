@@ -4,8 +4,8 @@ Configurable mumble container based off Alpine, installs murmur via apk.
 Based on https://hub.docker.com/r/extra/mumble/ (startup script)
 
 ### Provisioning script
+https://raw.githubusercontent.com/erlendaakre/docker-mumble/master/provision.sh
 Edit the 3 top variables in this script, then run it to set up a fully working mumble server
-
 ```
 SERVERPASS="CHANGEME"
 ADMINPASS="CHANGEME"
