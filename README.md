@@ -5,7 +5,7 @@ Based on https://hub.docker.com/r/extra/mumble/ (startup script)
 
 ### Provisioning script
 
-https://raw.githubusercontent.com/erlendaakre/docker-mumble/master/provision.sh
+
 
 Edit the 3 top variables in this script, then run it to set up a fully working mumble server
 ```
@@ -21,6 +21,7 @@ docker pull frostvoid/mumble
 docker volume create $VOLUMENAME
 docker run -d -p 64738:64738 -p 64738:64738/udp -v $VOLUMENAME:/data --name=$CONTAINERNAME $RESTARTPOLICY -e "SERVER_PASSWORD=$SERVERPASS" -e "SUPW=$ADMINPASS" -e "SERVER_TEXT=$MOTD" frostvoid/mumble
 ```
+https://raw.githubusercontent.com/erlendaakre/docker-mumble/master/provision.sh
 
 ### How to use
 This sets up a simple instance with defaults, 
