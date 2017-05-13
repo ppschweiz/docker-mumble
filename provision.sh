@@ -1,10 +1,11 @@
 # This script assumes you have docker installed and will download the frostvoid/mumble
 # image from docker hub, create a volume, start the container and set up murmur (mumble server).
 
+# IMPORTANT!
 # Edit these 3 lines with your server/SuperUser password and MOTD (message shown to users when logging in)
 SERVERPASS="kf92IXoywOY3HdfALuOKmvTEH"
 ADMINPASS="gS2ICaf5oiTf1Ae0esCSUGWVQ"
-MOTD="<br/>core.frostvoid.com Mumble server<br/>Private!"
+MOTD="<br/>First line of message<br/>Second Line"
 
 # Optionally alter these if you want, but these defaults should be good for most uses
 CONTAINERNAME="mumble"
