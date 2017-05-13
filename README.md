@@ -1,6 +1,6 @@
 ## Mumble server (murmur)
 
-Mumble container based off Alpine, installs murmur via apk.
+Configurable mumble container based off Alpine, installs murmur via apk.
 Based on https://hub.docker.com/r/extra/mumble/ (startup script)
 
 ### Provisioning script
