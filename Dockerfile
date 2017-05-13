@@ -1,14 +1,22 @@
 FROM alpine:latest
 MAINTAINER Erlend Aakre <erlend@frostvoid.com>
 
+USER root
 COPY murmur.ini /etc/murmur.tpl
 COPY init.sh /usr/bin/init.sh
 
-# TODO set up mumble user
+RUN apk upgrade --update-cache --available && \
+apk --no-cache add murmur
 
-RUN mkdir -p /data
-RUN apk upgrade --update-cache --available
-RUN apk --no-cache add murmur
+RUN addgroup mumble && \
+adduser -h /home/mumble -s /sbin/nologin -D -G mumble mumble && \
+chown -R mumble /home/mumble && \
+chown -R mumble /etc/murmur.tpl && \
+chown -R mumble /usr/bin/init.sh && \
+mkdir -p /data && \
+chown -R mumble /data
+
+USER mumble
 
 VOLUME ["/data"]
 
