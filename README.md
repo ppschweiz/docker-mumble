@@ -22,8 +22,8 @@ docker volume create $VOLUMENAME
 docker run -d -p 64738:64738 -p 64738:64738/udp -v $VOLUMENAME:/data --name=$CONTAINERNAME $RESTARTPOLICY -e "SERVER_PASSWORD=$SERVERPASS" -e "SUPW=$ADMINPASS" -e "SERVER_TEXT=$MOTD" frostvoid/mumble
 ```
 
-### How to use
-This sets up a simple instance with defaults, 
+### How to run
+This sets up a simple instance with defaults, the easiest way to get a configured mumble up and running however is to use the Provisioning script above
 
 `docker volume create mumble_data`
 `docker run -p 64738:64738 -p 64738:64738/udp -d -v mumble_data:/data frostvoid/mumble`
