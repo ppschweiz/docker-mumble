@@ -1,3 +1,5 @@
+[![](https://images.microbadger.com/badges/version/frostvoid/mumble.svg)](https://microbadger.com/images/frostvoid/mumble "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/frostvoid/mumble.svg)](https://microbadger.com/images/frostvoid/mumble "Get your own image badge on microbadger.com")
+
 ## Mumble server (murmur)
 
 Configurable mumble container based off Alpine, installs murmur via apk.
