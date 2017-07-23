@@ -6,6 +6,7 @@ COPY murmur.ini /etc/murmur.tpl
 COPY init.sh /usr/bin/init.sh
 
 RUN apk upgrade --update-cache --available && \
+apk --no-cache add qt-mysql && \
 apk --no-cache add murmur
 
 RUN addgroup mumble && \
