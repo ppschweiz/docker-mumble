@@ -5,9 +5,10 @@ USER root
 COPY murmur.ini /etc/murmur.tpl
 COPY init.sh /usr/bin/init.sh
 
-RUN apk upgrade --update-cache --available && \
-apk --no-cache add qt-mysql && \
-apk --no-cache add murmur
+RUN apk add --no-cache \
+		murmur \
+		qt-mysql \
+	;
 
 RUN addgroup mumble && \
 adduser -h /home/mumble -s /sbin/nologin -D -G mumble mumble && \
