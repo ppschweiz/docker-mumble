@@ -5,8 +5,10 @@ USER root
 COPY murmur.ini /etc/murmur.tpl
 COPY init.sh /usr/bin/init.sh
 
+ENV MURMUR_ALPINE_VERSION 1.2.19-r9
+
 RUN apk add --no-cache \
-		murmur \
+		murmur>="$MURMUR_ALPINE_VERSION" \
 		qt-mysql \
 	;
 
