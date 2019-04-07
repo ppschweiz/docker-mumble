@@ -1,0 +1,12 @@
+language: generic
+
+notifications:
+  email:
+    on_success: never
+    on_failure: always
+
+services:
+  - docker
+
+script:
+  - docker build -t ppschweiz/mumble .
