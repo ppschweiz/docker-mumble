@@ -1,30 +1,27 @@
-FROM alpine:latest
+FROM alpine:3.10
 MAINTAINER Erlend Aakre <erlend@frostvoid.com>
 
-USER root
 COPY murmur.ini /etc/murmur.tpl
-COPY init.sh /usr/bin/init.sh
-
-ENV MURMUR_ALPINE_VERSION 1.2.19-r9
+ENV MURMUR_ALPINE_VERSION 1.3.0-r0
 
 RUN apk add --no-cache \
-		murmur>="$MURMUR_ALPINE_VERSION" \
-		qt-mysql \
-	;
+	murmur>=$MURMUR_ALPINE_VERSION \
+	qt5-qtbase-mysql
 
-RUN addgroup mumble && \
-adduser -h /home/mumble -s /sbin/nologin -D -G mumble mumble && \
-chown -R mumble /home/mumble && \
-chown -R mumble /etc/murmur.tpl && \
-chown -R mumble /usr/bin/init.sh && \
-mkdir -p /data && \
-chown -R mumble /data
+RUN set -eux; \
+	addgroup mumble; \
+	adduser -h /home/mumble -s /sbin/nologin -D -G mumble mumble; \
+	mkdir -p /data; \
+	chown -R mumble \
+		/data \
+		/etc/murmur.tpl \
+		/home/mumble
 
-USER mumble
+COPY docker-entrypoint.sh /usr/local/bin/
+ENTRYPOINT ["docker-entrypoint.sh"]
 
 VOLUME ["/data"]
+USER mumble
 
 EXPOSE 64738 64738/udp
-
-CMD ["/usr/bin/init.sh"]
-
+CMD ["/usr/bin/murmurd", "-fg", "-ini", "/data/murmur.ini"]

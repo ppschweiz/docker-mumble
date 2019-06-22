@@ -21,7 +21,7 @@ if [ ! -e /data/murmur.ini ]; then
 	else
 		echo 'database=/data/db.sqlite' >> /data/murmur.ini
 	fi
-	echo Initilization Completed 
+	echo Initilization Completed
 fi
 
-exec /usr/bin/murmurd -fg -ini /data/murmur.ini
+exec "$@"
