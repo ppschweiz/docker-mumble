@@ -9,7 +9,7 @@ if [ ! -e /data/murmur.ini ]; then
 	if [ ! -z "$REGISTER_NAME" ] ; then echo 'registerName='"$REGISTER_NAME" >> /data/murmur.ini ; fi
 	if [ ! -z "$BANDWIDTH" ] ; then echo 'bandwidth='"$BANDWIDTH" >> /data/murmur.ini ; fi
 	if [ ! -z "$LOGDAYS" ] ; then echo 'logdays='"$LOGDAYS" >> /data/murmur.ini ; fi
-	if [ ! -z "$SUPW" ] ; then /usr/bin/murmurd -fg -ini /data/murmur.ini -supw $SUPW ;fi
+	if [ ! -z "$SUPW" ] ; then /usr/bin/murmurd -fg -ini /data/murmur.ini -supw "$SUPW" ;fi
 	if [ ! -z "$SSL_CERT" ] ; then echo 'sslCert='"$SSL_CERT" >> /data/murmur.ini ; fi
 	if [ ! -z "$SSL_KEY" ] ; then echo 'sslKey='"$SSL_KEY" >> /data/murmur.ini ; fi
 	if [ ! -z "$SSL_CA" ] ; then echo 'sslCA='"$SSL_CA" >> /data/murmur.ini ; fi
