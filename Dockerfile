@@ -1,8 +1,8 @@
-FROM alpine:3.19
+FROM alpine:3.20
 MAINTAINER Erlend Aakre <erlend@frostvoid.com>
 
 COPY murmur.ini /etc/murmur.tpl
-ENV MURMUR_ALPINE_VERSION 1.4.287-r10
+ENV MURMUR_ALPINE_VERSION 1.4.287-r11
 
 RUN apk add --no-cache \
 	murmur>=$MURMUR_ALPINE_VERSION \
