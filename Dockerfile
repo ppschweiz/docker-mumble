@@ -1,8 +1,8 @@
-FROM alpine:3.21
+FROM alpine:3.22
 MAINTAINER Erlend Aakre <erlend@frostvoid.com>
 
 COPY murmur.ini /etc/murmur.tpl
-ENV MURMUR_ALPINE_VERSION 1.5.634-r0
+ENV MURMUR_ALPINE_VERSION 1.5.735-r3
 
 RUN apk add --no-cache \
 	murmur>=$MURMUR_ALPINE_VERSION \
@@ -24,4 +24,4 @@ VOLUME ["/data"]
 USER mumble
 
 EXPOSE 64738 64738/udp
-CMD ["/usr/bin/murmurd", "-fg", "-ini", "/data/murmur.ini"]
+CMD ["/usr/bin/mumble-server", "-fg", "-ini", "/data/murmur.ini"]
