@@ -1,11 +1,11 @@
-FROM alpine:3.23
+FROM alpine:3.22
 MAINTAINER Erlend Aakre <erlend@frostvoid.com>
 
 COPY murmur.ini /etc/murmur.tpl
-ENV MURMUR_ALPINE_VERSION 1.5.857-r0
+ENV MURMUR_ALPINE_VERSION 1.5.735-r3
 
 RUN apk add --no-cache \
-	mumble-server>=$MURMUR_ALPINE_VERSION \
+	murmur>=$MURMUR_ALPINE_VERSION \
 	qt5-qtbase-mysql
 
 RUN set -eux; \
