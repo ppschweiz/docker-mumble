@@ -14,7 +14,7 @@ if [ ! -e /data/murmur.ini ]; then
 	if [ ! -z "$SSL_KEY" ] ; then echo 'sslKey='"$SSL_KEY" >> /data/murmur.ini ; fi
 	if [ ! -z "$SSL_CA" ] ; then echo 'sslCA='"$SSL_CA" >> /data/murmur.ini ; fi
 	if [ ! -z "$MYSQL_DATABASE" ] ; then
-		echo 'dbDriver=QMYSQL' >> /data/murmur.ini
+		echo 'dbDriver=mysql' >> /data/murmur.ini
 		if [ ! -z "$MYSQL_DATABASE" ] ; then echo 'database='"$MYSQL_DATABASE" >> /data/murmur.ini ; fi
 		if [ ! -z "$MYSQL_HOST" ] ; then echo 'dbHost='"$MYSQL_HOST" >> /data/murmur.ini ; fi
 		if [ ! -z "$MYSQL_USER" ] ; then echo 'dbUsername='"$MYSQL_USER" >> /data/murmur.ini ; fi
